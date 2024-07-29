@@ -3,6 +3,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const projects = require("./data/projects.json");
+const article = require("./data/articles.json");
 
 // CREATE EXPRESS APP
 // Here you should create your Express app:
@@ -29,7 +30,9 @@ app.get("/blog", (request, response) => {
 app.get("/api/projects", (request, response) => {
   response.json(projects);
 });
-
+app.get("/api/articles", (request, response) => {
+  response.json(article);
+});
 app.get("/*", (request, response) => {
   response.sendFile(__dirname + "/views/not-found.html");
 });
